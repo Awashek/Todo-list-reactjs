@@ -1,10 +1,11 @@
-
+import TodoInput from "./components/TodoInput"
+import TodoList from "./components/TodoList"
 function App() {
-
   return (
-    <>
-      <div>{4*4}</div>
-    </>
+      <>
+        <TodoInput />
+        <TodoList />
+      </>
   )
 }
 
