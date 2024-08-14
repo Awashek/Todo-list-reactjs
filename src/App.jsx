@@ -25,7 +25,7 @@ function App() {
   return (
       <>
         <TodoInput handleAddTodos={handleAddTodos}/>
-        <TodoList handelDeleteTod={handelDeleteTodo} todos={todos}/>
+        <TodoList handelDeleteTodo={handelDeleteTodo} todos={todos}/>
       </>
   )
 }
