@@ -1,10 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import TodoInput from "./components/TodoInput"
 import TodoList from "./components/TodoList"
 function App() {
-  const [todos,setTodos] = useState([
-   
-  ])
+  const [todos,setTodos] = useState([])
+  const[todoValue, setTodoValue] = useState('')
 
   function handleAddTodos (newTodos) {
     const newTodoList = [...todos, newTodos]
@@ -19,13 +18,24 @@ function App() {
   }
 
   function handelEditTodo (index) {
-
+    const valueToBeChanged = todos[index]
+    setTodoValue(valueToBeChanged)
+    handelDeleteTodo(index)
   }
+
+  useEffect(()=>{
+    
+  },[])
 
   return (
       <>
-        <TodoInput handleAddTodos={handleAddTodos}/>
-        <TodoList handelDeleteTodo={handelDeleteTodo} todos={todos}/>
+        <TodoInput todoValue={todoValue}
+         handleAddTodos={handleAddTodos}
+         setTodoValue={setTodoValue}/>
+        <TodoList 
+        handelEditTodo={handelEditTodo}
+        handelDeleteTodo={handelDeleteTodo} 
+        todos={todos}/>
       </>
   )
 }
