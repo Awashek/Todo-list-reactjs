@@ -5,6 +5,12 @@ function App() {
   const [todos,setTodos] = useState([])
   const[todoValue, setTodoValue] = useState('')
 
+  function persistData(newData) {
+    localStorage.setItem('todos', JSON.stringify({todos:
+      newData
+    }))
+  }
+
   function handleAddTodos (newTodos) {
     const newTodoList = [...todos, newTodos]
     setTodos(newTodoList)
@@ -24,7 +30,16 @@ function App() {
   }
 
   useEffect(()=>{
-    
+    if(!localStorage) {
+      return
+    }
+
+    let localTodos = localStorage.getItem('todos')
+    if (!localStorage) {
+      return
+    }
+    localTodos = JSON.parse(localTodos).todos
+    setTodos(localTodos)
   },[])
 
   return (
