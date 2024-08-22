@@ -50,6 +50,7 @@ function App() {
 
   return (
     <>
+    <h1 className="MainHeader">Todo List App</h1>
       <TodoInput
         todoValue={todoValue}
         handleAddTodos={handleAddTodos}

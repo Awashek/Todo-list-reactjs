@@ -28,6 +28,10 @@ header {
   align-items: stretch;
 }
 
+.MainHeader {
+  text-align: center;
+}
+
 header,
 .main {
   max-width: 800px;
